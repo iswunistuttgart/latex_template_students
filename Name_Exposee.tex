@@ -1,0 +1,93 @@
+% Beispiel für ein Projektexposé.
+\documentclass[10pt, onseide, a4paper, DIV14]{scrartcl}
+
+\usepackage{iswthesis}
+
+%% Einstellungen:
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor} % Farben mit Namen ansprechen
+\usepackage{pgfplots} % Plot-Engine
+\pgfplotsset{compat=newest} 
+\usepackage{pgfgantt} % Paket für Gantt-Diagramme
+
+
+\author{Max Mustermann}
+\title{Exposé: Name des Themas}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+	
+\section{Motivation}
+
+Das Exposé dient dazu, die gestellte Aufgabe zu reflektieren und in eigenen Worten wiederzugeben. Darüber hinaus soll der Stand der Technik recherchiert und analysiert werden. Basierend auf der gestellten Aufgabe und dem aus dem Stand der Technik abgeleiteten Handlungsbedarf soll eine Zeitplanung erstellt werden. Die Gliederung dieses Dokuments gibt die Grobstruktur des Exposés vor. Jedoch gilt auch für das Exposé, dass die Kapitelüberschriften und deren Reihenfolge der jeweiligen Arbeit und dem entsprechenden Themengebiet angepasst werden müssen.
+
+Das erste Kapitel (inkl. Unterkapitel) der Arbeit und dieses Exposé dienen dazu, folgende Fragen zu klären:
+
+\begin{itemize}
+    \item In welchem Themengebiet bewegt sich die Arbeit?
+    \item Worin liegt das Problem? Warum muss überhaupt an dem Themengebiet gearbeitet werden?
+    \item Was ist meine Aufgabe? Was ist mein Beitrag zu der Lösung des Problems/der Fragestellung?
+    \item Was ist das Ziel der Aufgabe bzw. meiner Arbeit?
+    \item Wie ordnet sich das Ziel der Arbeit/die Lösung der Arbeit in die Lösung des Gesamtproblems ein?
+\end{itemize}
+
+Überlegen Sie sich eine sinnvolle Argumentationskette die auf das Thema hinführt.
+
+
+\section{Zielsetzung}
+
+\section{Stand der Technik: Übersicht}
+
+\section{Vorgehensweise}
+
+\section{Arbeitspaket- und Zeitplan}
+
+\begin{figure*}[htbp]
+    \begin{center}
+        
+        % Dokumentation ist unter http://mirrors.ctan.org/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf einsehbar. Hier sind alle Einstellmöglichkeiten erklärt.
+        \begin{ganttchart}[vgrid,
+            y unit title = 0.7cm,
+            y unit chart = 0.5cm,
+            bar/.append style={fill=red!70},
+            bar incomplete/.append style={fill=black!30},
+            bar top shift =0.2,
+            bar height=.5,
+            group/.append style={draw=black,fill=NavyBlue!70},
+            group incomplete/.append style={draw=black, fill=black!50},
+            group left shift=0,
+            group right shift=0,
+            group height=.7,
+            group peaks height = 0,
+            milestone height = 0.7,
+            milestone/.append style={fill=orange},
+            progress=today,
+            today = 4, % wenn today gesetzt ist wird eine Linie mit dem aktuellen Stand angezeigt.
+            ]{1}{30} % Zeitraum einstellen, von wann bis wann
+            
+            \gantttitle{2018}{10} \gantttitle{2019}{20} \\ % wie viele Kalenderwochen in welchemm Jahr
+            \gantttitlelist{43,...,52}{1} \gantttitlelist{1,...,20}{1} \\ % kalenderwochen durchnummerieren.
+            
+            %% Hier beginnt der Inhalt der Gantt-Diagramms
+            
+            \ganttgroup{Paket 1}{1}{12} \\ % Task {von}{bis}  als Wochennummern
+            \ganttbar{Aufgabe 1}{1}{8} \\ % Subtask
+            \ganttlinkedbar{Aufgabe 2}{9}{12} \\ %Subtask verbunden mit letzter Aufgabe
+            %\ganttmilestone{Milestone}{12} \\ % Meilenstein
+            \ganttbar{Aufgabe 3}{13}{20} 
+            
+            
+            \\ \ganttnewline[thick, black] % Trennlinien
+        
+        \end{ganttchart}
+    \end{center}
+    \caption{Gantt-Diagramm des geplanen Arbeitsablaufs.}\label{fig:Gantt-chart-2}
+\end{figure*}
+
+
+Beschreibung des Arbeitsplans in \autoref{fig:Gantt-chart-2} \ldots
+
+\end{document}
