@@ -1,0 +1,124 @@
+
+% set the language here. Last language is the main language. Use `ngerman` (= new german) for German texts.
+\usepackage[english, ngerman]{babel}
+
+
+
+% general math support
+% consider using bracket environments for inline math, i.e. \(x_2^2 + \sqrt{\gamma}\) instead of $$.
+% for numbered equations in their own line, use e.g. the array environment. 
+\usepackage{amsmath, amssymb}
+
+% bold math package. Set matrices and vectors with \bm{v}
+\usepackage{bm}
+
+% beautiful table environments (see https://ctan.org/pkg/booktabs)
+\usepackage{booktabs}
+
+% consistent acronym definitions and usage. You may want to use the glossaries package instead, which is more powerful, but more complex to handle.
+\usepackage[printonlyused, smaller]{acronym}
+
+% for multiple plots in one figue, e.g. Fig 1.a and Fig 1.b
+% https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions#Subfloats
+\usepackage{subcaption}
+
+% provides \FloatBarrier to prevent floats past some point.
+\usepackage{placeins}
+
+% For vector graphics and MATLAB figures, you may try TikZ:
+% There is also tikz-uml for UML diagrams
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\pgfplotsset{
+    compat = newest,
+	grid=major,
+	every axis plot/.append style={very thick},
+}
+
+% block diagrams with tikz
+\usetikzlibrary{calc,fit, positioning,arrows.meta}
+\tikzset{>={Latex[width=2mm,length=2mm]}} % more visible default arrow heads
+\tikzstyle{block} = [draw=black, fill=white, rectangle, align=center, minimum height=2em, minimum width=3em]
+\tikzstyle{sum} = [draw, circle, node distance=1cm]
+
+% global matlab2tikz options for exporting MATLAB plots
+% https://github.com/matlab2tikz/matlab2tikz
+\newlength\figureheight 
+\newlength\figurewidth 
+\setlength\figureheight{3cm} 
+\setlength\figurewidth{0.7\textwidth}
+
+
+% If you want to use colors, we already defined some for you (university corporate design)
+\RequirePackage{xcolor}
+
+\definecolor{UStuttDarkBlue}{RGB}{0,81,158}
+\definecolor{UStuttLightBlue}{RGB}{0,190,255}
+\definecolor{UStuttDarkGreen}{RGB}{59,140,122}
+\definecolor{UStuttLightGreen}{RGB}{125,155,101}
+\definecolor{UStuttDarkOrange}{RGB}{228,175,52}
+\definecolor{UStuttLightOrange}{RGB}{236,218,145}
+
+
+% for code listings, you can e.g. use the "listings" package (http://texdoc.net/texmf-dist/doc/latex/listings/listings.pdf):
+\usepackage{listings} 
+\usepackage{scrhack} % if you load listings together with scrbook etc., then load this fixing package as well
+
+\lstset{
+  captionpos=b,
+  commentstyle=\color{UStuttDarkGreen},
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,
+  %keywordstyle=\color{UStuttDarkBlue},
+  showspaces=false,
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,
+  stringstyle=\color{UStuttDarkBlue},
+  tabsize=2
+}
+
+
+% hyperref provides hyperlinks within the document, but also auto-naming.
+% E.g. when referencing, instead of typing "Figure~\ref{fig:XY}" try "\autoref{fig:XY}".
+% You may want to use `clevceref` instead of using \autoref in the hyperref package, which has slightly more possibilities.
+\PassOptionsToPackage{pdfpagelabels}{hyperref}
+\usepackage{hyperref}  % backref linktocpage pagebackref
+\pdfcompresslevel=9
+\pdfadjustspacing=1
+
+\hypersetup{%
+    %draft, % = no hyperlinking at all
+    %colorlinks=true,
+    colorlinks=false, 
+    linktocpage=false, pdfborder={0 0 0},%
+    breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+    plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+    hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+    %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+} 
+
+
+% Your own commands (https://en.wikibooks.org/wiki/LaTeX/Macros):
+% Consider defining your own commands for often used terms, e.g.
+
+% Real numbers symbol
+\newcommand{\R}{\mathbb{R}}
+
+% Transpose of vector or matrix (upright)
+\newcommand{\T}{\mathrm{T}}
+
+\newcommand{\mustbe}{\ensuremath{\stackrel{!}{=}}}
+
+% short matrix environment. Instead of typing \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} you can now use as well \bmat{1 & 2 \\ 3 & 4}
+\newcommand{\bmat}[1]{ \ensuremath{\begin{bmatrix} #1 \end{bmatrix}} }
+
+% partial derivative: \partfrac{^2}{x^2} yields ∂²/∂x²
+\newcommand{\partfrac}[2]{ \ensuremath{\frac{\partial #1}{\partial #2}} }
+
+% upright "d" for differentiation
+\newcommand{\ddiff}{\ensuremath{\mathrm{d}}}
+
+% d/dt
+\newcommand{\ddt}{\ensuremath{\frac{\ddiff}{\ddiff t}}}
+

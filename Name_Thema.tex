@@ -1,0 +1,80 @@
+\documentclass[ a4paper,
+                oneside,
+                toc=bibliography,
+                toc=listof
+                ]{scrbook}
+
+% This class does the styling for you (together with scrbook).
+%
+% It handles the following:
+% - Proper input and font encoding (Just type, don't care about the LaTeX compiler you use or how to type German umlauts)
+% - Fonts with ligatures and kerning (Tex Gyre fonts are used, part of every LaTeX installation, text is nice to read)
+% - Bibliography styling for biblatex (declare your bibliography file and you are ready to go)
+% - Provide command for title page (\makeISWtitle) and declaration of originality ( \declarationOfOriginality)
+% - Loads packages "biblatex" and "graphics"
+\usepackage[
+    type=master, % bachelor, study, bachelorproject
+    male % or female
+]{iswthesis}
+
+% hier der Name/Pfad zur .bib-Datei für BibLatex
+\addbibresource{bibliography.bib}
+% \addbibresource{someOtherBibFile}
+
+\input{settings}
+
+\author{Max Mustermann}
+% TODO: \runningauthor{M. Mustermann}
+\placeOfBirth{Stuttgart}
+\address{Seidenstraße 36, 70174 Stuttgart}
+\major{Mechatronik}
+\title{Wie man einen Hamster trainiert}
+\titleTranslated{How to train a hamster}
+\matrnr{1234567}
+\date{\today}
+\supervisor{Mein Betreuer, M.Sc.}
+\professor{Prof. Dr.-Ing. Oliver Riedel}
+
+\begin{document} 
+    \frontmatter
+    \makeISWtitle
+
+    \declarationOfOriginality
+
+    % Kurzfassung/Abstract
+    
+    \cleardoublepage
+    \tableofcontents
+    
+
+    \mainmatter
+
+    % ********************************************************************
+    % Write your own contents here:
+    % ********************************************************************
+
+
+    \input{chapters/Einleitung}
+    \input{chapters/Examples}
+    
+    \chapter{Fazit}
+
+    % ********************************************************************
+    % End of contents
+    % ********************************************************************
+
+    \backmatter
+    \cleardoublepage
+    \printbibliography
+
+    \cleardoublepage
+    \listoffigures
+    \cleardoublepage
+    \listoftables
+    \cleardoublepage
+    \input{chapters/Acronyms}
+
+    % Appendix, if needed:
+
+
+\end{document}

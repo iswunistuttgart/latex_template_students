@@ -1,0 +1,239 @@
+% iswthesis ... simplifying thesis writing in LaTeX complying with the style of ISW, University of Stuttgart
+% This class does the styling for you (together with a komascript class).
+%
+% It handles the following:
+% - Proper input and font encoding (Just type, don't care about the LaTeX compiler you use or how to type German umlauts)
+% - Fonts with ligatures and kerning (Tex Gyre fonts are used, part of every LaTeX installation, text is nice to read)
+% - Bibliography styling for biblatex (declare your bibliography file and you are ready to go)
+% - Provide command for title page (\makeISWtitle) and declaration of originality ( \declarationOfOriginality)
+% - Loads packages "biblatex" and "graphics"
+%
+% Package dependencies:
+%	- ifthen, ifpdf, ifxetex, ifluatex, kvoptions ... Options handling
+%	- microtype ... font kerning
+%	- [just pdflatex] fontenc, inputenc ... handle encodings
+%	- tgheros ... sans serif font for headings
+%	- [just luatex and xetex] fontspec, unicode-math ... serif, unicode and math fonts
+%	- [just pdflatex] mathpazo, beramono, textcomp 	 ... serif, unicode and math fonts
+%	- csquotes ... handling quotes correclty with biblatex
+%	- biblatex ... bibliogrpahy
+%	- graphicx ... loading logo image for the titlepage
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{iswthesis}[2019-11-13 v0.2 Basic styling for a student thesis written at ISW, University of Stuttgart.]
+\providecommand{\iswthesis}{iswthesis v0.2}
+
+\RequirePackage{ifthen}
+\RequirePackage{ifpdf}
+\RequirePackage{ifxetex}
+\RequirePackage{ifluatex}
+
+% ********************************************************************
+% Template commands (mainly used for title page)
+% ********************************************************************
+\providecommand{\titleTranslated}[1]{\gdef\iswt@titleTranslated{#1}}
+
+\providecommand{\runningauthor}[1]{\gdef\iswt@runningauthor{#1}}
+\providecommand{\major}[1]{\gdef\iswt@major{#1}}
+
+\providecommand{\address}[1]{\gdef\iswt@address{#1}}
+\providecommand{\placeOfBirth}[1]{\gdef\iswt@placeOfBirth{#1}}
+\providecommand{\matrnr}[1]{\gdef\iswt@matrnr{#1}}
+
+\providecommand{\supervisor}[1]{\gdef\iswt@supervisor{#1}}
+\providecommand{\professor}[1]{\gdef\iswt@professor{#1}}
+
+
+% ********************************************************************
+% Package options
+% ********************************************************************
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=iswt, prefix=iswt@}
+
+
+\DeclareStringOption[bachelor]{type}[]
+\DeclareBoolOption{male}
+\DeclareComplementaryOption{female}{male}
+
+% Parse the given options
+\ProcessKeyvalOptions{iswt}
+
+% ********************************************************************
+% Style
+% ********************************************************************
+
+% micro-typographic extensions to have a better readable text
+\RequirePackage{microtype}
+
+\ifthenelse{\boolean{xetex}\OR\boolean{luatex}}{
+	\relax
+}{
+	% pdflatex needs to know the font and file formats
+	\PassOptionsToPackage{T1}{fontenc} % T2A for cyrillics
+	\RequirePackage{fontenc}  
+
+	\PassOptionsToPackage{utf8}{inputenc} % directly support utf8 characters, as ä,ö,ü,Ü,ß
+	\RequirePackage{inputenc}  
+	 
+}
+
+
+% Disable single lines at the start of a paragraph (Schusterjungen)
+\clubpenalty = 10000
+% Disable single lines at the end of a paragraph (Hurenkinder)
+\widowpenalty = 10000
+\displaywidowpenalty = 10000 % formulas
+
+% load fonts with ligatures and proper kerning
+\ifthenelse{\boolean{xetex}\OR\boolean{luatex}}
+   { % use fontspec and OpenType fonts with utf8 engines
+    \usepackage{tgheros}
+	\RequirePackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	\setmainfont[Ligatures=TeX,Numbers=OldStyle]{TeX Gyre Pagella} % Palatino clone
+	\linespread{1.05} % a bit more for Palatino
+	\RequirePackage{unicode-math}
+	\setmathfont{TeX Gyre Pagella Math}
+	\setmonofont[Scale=0.85]{DejaVu Sans Mono} % like Bera; Scale=MatchLowercase
+   }{
+	\usepackage{tgheros}
+	% \setsansfont
+	\PassOptionsToPackage{osf,sc}{mathpazo}%
+	\RequirePackage{mathpazo} % Palatino with real small caps and old style figures
+	\linespread{1.05} % a bit more for Palatino
+	\PassOptionsToPackage{scaled=0.85}{beramono}%
+	\RequirePackage{beramono}% bera monospace font
+	\RequirePackage{textcomp}% declare missing symbols
+   }
+
+% Bibliography
+\PassOptionsToPackage{%
+  backend=biber,%
+  backref=false,%
+  giveninits=true,%
+  autocite=inline,%
+  sorting=nyt,%
+  sortcites=true,%
+  mincitenames=1,%
+  maxcitenames=2,%
+  maxbibnames=10,%
+  doi=false,%
+  isbn=false,%
+  url=false,%
+  natbib=true,
+}{biblatex}
+
+\ifthenelse{\equal{\iswt@type}{diss}}{% TRUE
+  \PassOptionsToPackage{%
+    style=authoryear,%
+  }{biblatex}
+}{% FALSE
+  \PassOptionsToPackage{%
+    style=ieee,%
+  }{biblatex}
+}%
+
+\RequirePackage{csquotes}
+\RequirePackage{biblatex}
+\setcounter{biburlnumpenalty}{100}
+
+\RequirePackage{graphicx}
+
+% ********************************************************************
+% Style
+% ********************************************************************
+
+\def\iswt@thesisType{\texttt{type}-Option ungültig}
+\def\iswt@aimedDegree{}
+
+\ifiswt@male
+	\def\iswt@salutation{Herrn}
+\else
+	\def\iswt@salutation{Frau}
+\fi
+
+\ifthenelse{\equal{\iswt@type}{bachelor}}{
+	\def\iswt@thesisType{Bachelorarbeit}
+	\def\iswt@aimedDegree{B.\,Sc.}
+}{}
+\ifthenelse{\equal{\iswt@type}{master}}{
+	\def\iswt@thesisType{Masterarbeit}
+	\def\iswt@aimedDegree{M.\,Sc.}
+}{}
+\ifthenelse{\equal{\iswt@type}{study}}{
+	\def\iswt@thesisType{Studienarbeit}
+	\def\iswt@aimedDegree{M.\,Sc.}
+}{}
+\ifthenelse{\equal{\iswt@type}{diss}}{
+	\def\iswt@thesisType{Dissertation}
+	\def\iswt@aimedDegree{Dr.-Ing.}
+}{}
+\ifthenelse{\equal{\iswt@type}{bachelorproject}}{
+	\def\iswt@thesisType{Bachelor-Projektarbeit}
+	\def\iswt@aimedDegree{B.\,Sc.}
+}{}
+
+
+\newcommand{\makeISWtitle}{%
+\begin{titlepage}
+	\centering
+	{\huge \iswt@thesisType\par}
+\vspace{4em}
+	{\Huge\bfseries\sffamily \@title\par}
+\vspace{8em}
+	eingereicht von\par
+	\vspace{0.5em}
+	{\Large\itshape \@author\par}
+	\vspace{0.5em}
+	aus \iswt@placeOfBirth\par
+	 \vfill
+	 
+	\begin{tabbing}
+	Studiengang  \hspace*{2cm} \= \iswt@aimedDegree~\iswt@major \\
+	Prüfer \> \iswt@professor \\
+	Betreuer \> \iswt@supervisor \\
+	Eingereicht am \> \@date
+	\end{tabbing}
+	\vspace{4em}
+
+
+	\includegraphics[width=0.15\paperwidth]{images/logo-institute}\par
+	\vspace{1em}
+	Institut für Steuerungstechnik der Werkzeugmaschinen und Fertigungseinrichtungen
+
+	Universität Stuttgart
+\end{titlepage}
+}%
+
+\newcommand{\declarationOfOriginality}{
+\chapter*{Eigenständigkeitserklärung}
+
+\iswt@thesisType{} von \iswt@salutation{} \@author{}  (\iswt@major{})
+
+\begin{tabbing}
+Anschrift \hspace*{2cm} \= \iswt@address{} \\
+Matrikelnummer \> \iswt@matrnr{} \\
+Deutscher Titel \> \textit{\@title{}}\\
+Englischer Titel \> \textit{\iswt@titleTranslated{}}
+\end{tabbing}
+
+\noindent Hiermit erkläre ich,
+\begin{itemize}
+\item dass ich die vorliegende Arbeit selbstständig verfasst habe,
+\item dass keine anderen als die angegebenen Quellen benutzt und alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet sind,
+\item dass die eingereichte Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist,
+\item dass ich die Arbeit weder vollständig noch in Teilen bereits veröffentlicht habe und 
+\item dass ich mit der Arbeit keine Rechte Dritter verletze und die Universität von etwaigen Ansprüchen Dritter freistelle.
+\end{itemize}
+
+\vfill
+\noindent\rule{6cm}{0.66pt}\\
+Stuttgart, den \@date
+
+}
+
+
+
+
+\endinput
