@@ -79,6 +79,19 @@
 }
 
 
+% This class does the ISW styling for you (together with scrbook).
+%
+% It handles the following:
+% - Proper input and font encoding (Just type, don't care about the LaTeX compiler you use or how to type German umlauts)
+% - Fonts with ligatures and kerning (Tex Gyre fonts are used, part of every LaTeX installation, text is nice to read)
+% - Bibliography styling for biblatex (declare your bibliography file and you are ready to go)
+% - Provide command for title page (\makeISWtitle) and declaration of originality ( \declarationOfOriginality)
+% - Loads packages "biblatex" and "graphics"
+\usepackage[
+    type=master, % bachelor, study, bachelorproject
+    male % or female
+]{iswthesis}
+
 % hyperref provides hyperlinks within the document, but also auto-naming.
 % E.g. when referencing, instead of typing "Figure~\ref{fig:XY}" try "\autoref{fig:XY}".
 % You may want to use `clevceref` instead of using \autoref in the hyperref package, which has slightly more possibilities.

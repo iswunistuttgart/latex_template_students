@@ -86,14 +86,16 @@
 \displaywidowpenalty = 10000 % formulas
 
 % load fonts with ligatures and proper kerning
+
+
 \ifthenelse{\boolean{xetex}\OR\boolean{luatex}}
    { % use fontspec and OpenType fonts with utf8 engines
-    \usepackage{tgheros}
 	\RequirePackage{fontspec}
 	\defaultfontfeatures{Ligatures=TeX}
-	\setmainfont[Ligatures=TeX,Numbers=OldStyle]{TeX Gyre Pagella} % Palatino clone
+	\setsansfont{Tex Gyre Heros}
+	\setmainfont[Numbers=OldStyle]{TeX Gyre Pagella} % Palatino clone
 	\linespread{1.05} % a bit more for Palatino
-	\RequirePackage{unicode-math}
+	\RequirePackage[mathbf=sym]{unicode-math}
 	\setmathfont{TeX Gyre Pagella Math}
 	\setmonofont[Scale=0.85]{DejaVu Sans Mono} % like Bera; Scale=MatchLowercase
    }{
@@ -106,6 +108,8 @@
 	\RequirePackage{beramono}% bera monospace font
 	\RequirePackage{textcomp}% declare missing symbols
    }
+
+
 
 % Bibliography
 \PassOptionsToPackage{%
