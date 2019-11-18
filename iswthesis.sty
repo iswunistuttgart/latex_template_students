@@ -9,14 +9,14 @@
 % - Loads packages "biblatex" and "graphics"
 %
 % Package dependencies:
-%	- ifthen, ifpdf, ifxetex, ifluatex, kvoptions ... Options handling
+%	- ifthen, ifpdf, ifxetex, ifluatex, iflang, kvoptions ... Options handling
 %	- microtype ... font kerning
 %	- [just pdflatex] fontenc, inputenc ... handle encodings
 %	- tgheros ... sans serif font for headings
 %	- [just luatex and xetex] fontspec, unicode-math ... serif, unicode and math fonts
 %	- [just pdflatex] mathpazo, beramono, textcomp 	 ... serif, unicode and math fonts
 %	- csquotes ... handling quotes correclty with biblatex
-%	- biblatex ... bibliogrpahy
+%	- biblatex ... bibliography
 %	- graphicx ... loading logo image for the titlepage
 %
 
@@ -28,6 +28,7 @@
 \RequirePackage{ifpdf}
 \RequirePackage{ifxetex}
 \RequirePackage{ifluatex}
+\usepackage{iflang}
 
 % ********************************************************************
 % Template commands (mainly used for title page)
@@ -53,8 +54,6 @@
 
 
 \DeclareStringOption[bachelor]{type}[]
-\DeclareBoolOption{male}
-\DeclareComplementaryOption{female}{male}
 
 % Parse the given options
 \ProcessKeyvalOptions{iswt}
@@ -148,25 +147,28 @@
 % Style
 % ********************************************************************
 
-\def\iswt@thesisType{\texttt{type}-Option ungültig}
+% detect German language, assume English otherwise (https://tex.stackexchange.com/a/174206)
+\newcommand*{\IfLangGerman}{%
+% The order can be optimized by putting more often used names first.
+\IfLanguageName{ngerman}\@firstoftwo{%
+\IfLanguageName{german}\@firstoftwo\@secondoftwo}%
+}%
+
+
+% Process variables
+\def\iswt@thesisType{\texttt{type}-Option invalid}
 \def\iswt@aimedDegree{}
 
-\ifiswt@male
-	\def\iswt@salutation{Herrn}
-\else
-	\def\iswt@salutation{Frau}
-\fi
-
 \ifthenelse{\equal{\iswt@type}{bachelor}}{
-	\def\iswt@thesisType{Bachelorarbeit}
+	\def\iswt@thesisType{\IfLangGerman{Bachelorarbeit}{Bachelor Thesis}}
 	\def\iswt@aimedDegree{B.\,Sc.}
 }{}
 \ifthenelse{\equal{\iswt@type}{master}}{
-	\def\iswt@thesisType{Masterarbeit}
+	\def\iswt@thesisType{\IfLangGerman{Masterarbeit}{Master Thesis}}
 	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
 \ifthenelse{\equal{\iswt@type}{study}}{
-	\def\iswt@thesisType{Studienarbeit}
+	\def\iswt@thesisType{\IfLangGerman{Studienarbeit}{Study Paper}}
 	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
 \ifthenelse{\equal{\iswt@type}{diss}}{
@@ -174,7 +176,7 @@
 	\def\iswt@aimedDegree{Dr.-Ing.}
 }{}
 \ifthenelse{\equal{\iswt@type}{bachelorproject}}{
-	\def\iswt@thesisType{Bachelor-Projektarbeit}
+	\def\iswt@thesisType{\IfLangGerman{Bachelor-Projektarbeit}{Bachelor Project}}
 	\def\iswt@aimedDegree{B.\,Sc.}
 }{}
 
@@ -186,54 +188,64 @@
 \vspace{4em}
 	{\Huge\bfseries\sffamily \@title\par}
 \vspace{8em}
-	eingereicht von\par
+\IfLangGerman{eingereicht von}{submitted by}\par
 	\vspace{0.5em}
 	{\Large\itshape \@author\par}
 	\vspace{0.5em}
-	aus \iswt@placeOfBirth\par
+	\IfLangGerman{aus}{from} \iswt@placeOfBirth\par
 	 \vfill
 	 
 	\begin{tabbing}
-	Studiengang  \hspace*{2cm} \= \iswt@aimedDegree~\iswt@major \\
-	Prüfer \> \iswt@professor \\
-	Betreuer \> \iswt@supervisor \\
-	Eingereicht am \> \@date
+		\IfLangGerman{Studiengang}{Degree program} \hspace*{2cm} \= \iswt@aimedDegree~\iswt@major \\
+		\IfLangGerman{Prüfer}{Examined by} \> \iswt@professor \\
+		\IfLangGerman{Betreuer}{Supervised by} \> \iswt@supervisor \\
+		\IfLangGerman{Eingereicht am}{Submitted on} \> \@date
 	\end{tabbing}
 	\vspace{4em}
 
 
 	\includegraphics[width=0.15\paperwidth]{images/logo-institute}\par
 	\vspace{1em}
-	Institut für Steuerungstechnik der Werkzeugmaschinen und Fertigungseinrichtungen
+	\IfLangGerman{Institut für Steuerungstechnik der Werkzeugmaschinen und Fertigungseinrichtungen}{Institute for Control Engineering of Machine Tools and Manufacturing Units}
 
-	Universität Stuttgart
+	\IfLangGerman{Universität Stuttgart}{University of Stuttgart}
 \end{titlepage}
 }%
 
 \newcommand{\declarationOfOriginality}{
-\chapter*{Eigenständigkeitserklärung}
+\chapter*{\IfLangGerman{Eigenständigkeitserklärung}{Declaration of Originality}}
 
-\iswt@thesisType{} von \iswt@salutation{} \@author{}  (\iswt@major{})
+\iswt@thesisType{} \IfLangGerman{von}{of} \@author{}  (\iswt@aimedDegree{} \iswt@major{})
 
 \begin{tabbing}
-Anschrift \hspace*{2cm} \= \iswt@address{} \\
-Matrikelnummer \> \iswt@matrnr{} \\
-Deutscher Titel \> \textit{\@title{}}\\
-Englischer Titel \> \textit{\iswt@titleTranslated{}}
+	\IfLangGerman{Anschrift}{Address} \hspace*{2cm} \= \iswt@address{} \\
+	\IfLangGerman{Matrikelnummer}{Student number} \> \iswt@matrnr{} \\
+	\IfLangGerman{Deutscher Titel}{English title} \> \textit{\@title{}}\\
+	\IfLangGerman{Englischer Titel}{German title} \> \textit{\iswt@titleTranslated{}}
 \end{tabbing}
 
-\noindent Hiermit erkläre ich,
+\IfLangGerman{
+	\noindent Hiermit erkläre ich,
+	\begin{itemize}
+	\item dass ich die vorliegende Arbeit selbstständig verfasst habe,
+	\item dass keine anderen als die angegebenen Quellen benutzt und alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet sind,
+	\item dass die eingereichte Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist,
+	\item dass ich die Arbeit weder vollständig noch in Teilen bereits veröffentlicht habe und 
+	\item dass ich mit der Arbeit keine Rechte Dritter verletze und die Universität von etwaigen Ansprüchen Dritter freistelle.
+	\end{itemize}
+}{
+\noindent I now declare,
 \begin{itemize}
-\item dass ich die vorliegende Arbeit selbstständig verfasst habe,
-\item dass keine anderen als die angegebenen Quellen benutzt und alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet sind,
-\item dass die eingereichte Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist,
-\item dass ich die Arbeit weder vollständig noch in Teilen bereits veröffentlicht habe und 
-\item dass ich mit der Arbeit keine Rechte Dritter verletze und die Universität von etwaigen Ansprüchen Dritter freistelle.
+	\item that I wrote this work independently,
+	\item that no sources other than those stated are used and that all statements taken from other works---direcly or figuratively---are marked as such,
+	\item that the work submitted was not the subject of any other examination procedure, either in its entirety or in substantial parts,
+	\item that I have not published the work in whole or in part, and
+	\item  that my work does not violate any rights of third parties and that I excempt the University against any claims of third parties.
 \end{itemize}
-
+}
 \vfill
 \noindent\rule{6cm}{0.66pt}\\
-Stuttgart, den \@date
+Stuttgart,\IfLangGerman{ den}{} \@date
 
 }
 
