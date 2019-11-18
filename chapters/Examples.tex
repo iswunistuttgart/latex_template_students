@@ -42,7 +42,7 @@ Nutzen Sie Tools zur Literaturverwaltung, wie JabRef oder Citavi.
 Eine Einführung in den Formelsatz mit \LaTeX{} finden Sie unter \url{https://de.wikibooks.org/wiki/LaTeX-Kompendium:_F%C3%BCr_Mathematiker}.
 Auch die Wikipedia-Seite zum Formelsatz (\url{https://de.wikipedia.org/wiki/Formelsatz}) ist einen Besuch wert.
 
-Formeln im Text lassen sich durch \texttt{\ \(\ \ldots \)} setzen, beispielsweise \(\sqrt{\alpha^2}\)) oder \( \bmat{a & b & c}^\T \) (\texttt{\textbackslash bmat} und \texttt{\textbackslash T} sind selbst definierte Makros in \texttt{settings.tex}).
+Formeln im Text lassen sich durch \texttt{\textbackslash( \ldots \textbackslash)} setzen, beispielsweise \(\sqrt{\alpha^2}\)) oder \( \bmat{a & b & c}^\T \) (\texttt{\textbackslash bmat} und \texttt{\textbackslash T} sind selbst definierte Makros in \texttt{settings.tex}).
 
 Mehrzeilige Mathe-Umgebungen können z.B mit der \texttt{align}-Umgebung gesetzt werden. Ein \&-Zeichen kann dabei für die vertikale Ausrichtung genutzt werden.
 
@@ -121,7 +121,7 @@ In \autoref{fig:blockschaltbild}, \autoref{fig:timeseries_states}, \autoref{fig:
 \begin{figure}[htbp]
     \centering
     \input{example_figures/Phasenplot}
-    \caption{Phasenplot}
+    \caption{Phasenplot analytisch berechnet mit TikZ \cite{Tantau2013}.}
     \label{fig:phasenplot}
 \end{figure}
 
