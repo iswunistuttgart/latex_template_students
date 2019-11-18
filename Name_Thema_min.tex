@@ -4,6 +4,8 @@
                 toc=listof
                 ]{scrbook}
 
+\usepackage[ngerman, english]{babel}
+
 % This class does the ISW styling for you (together with scrbook).
 %
 % It handles the following:
@@ -14,7 +16,6 @@
 % - Loads packages "biblatex" and "graphics"
 \usepackage[
     type=master, % bachelor, study, bachelorproject
-    male % or female
 ]{iswthesis}
 
 %Path to .bib-File(s) for BibLatex
@@ -22,15 +23,14 @@
 % \addbibresource{someOtherBibFile}
 
 \author{Max Mustermann}
-% TODO: \runningauthor{M. Mustermann}
 \placeOfBirth{Stuttgart}
 \address{Seidenstraße 36, 70174 Stuttgart}
 \major{Mechatronik}
-\title{Wie man einen Hamster trainiert}
-\titleTranslated{How to train a hamster}
+\title{How to train a hamster}
+\titleTranslated{Wie man einen Hamster trainiert}
 \matrnr{1234567}
 \date{\today}
-\supervisor{Mein Betreuer, M.Sc.}
+\supervisor{My supervisor, M.Sc.}
 \professor{Prof. Dr.-Ing. Oliver Riedel}
 
 \begin{document} 

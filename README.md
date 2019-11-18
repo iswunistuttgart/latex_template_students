@@ -53,14 +53,14 @@ It handles the following:
 We tried to minimize the package dependencies. This is a styling package, not a documentclass. Komascript does the rest.
 Below is a list of the packages we need to load anyhow.
 
-| Packages                                              | Why                                     |
-| ----------------------------------------------------- | --------------------------------------- |
-| `ifthen`, `ifpdf`, `ifxetex`, `ifluatex`, `kvoptions` | Options handling                        |
-| `microtype`                                             | font kerning                            |
-| [just pdflatex] `fontenc`, `inputenc`                     | handle encodings                        |
-| `tgheros`                                               | sans serif font for headings            |
-| [just luatex and xetex] `fontspec`, `unicode-math`        | serif, unicode and math fonts           |
-| [just pdflatex] `mathpazo`, `beramono`, `textcomp`          | serif, unicode and math fonts           |
-| `csquotes`                                              | handling quotes correclty with biblatex |
-| `biblatex`                                              | bibliography                            |
-| `graphicx`                                              | loading logo image for the titlepage    |
+| Packages                                                        | Why                                     |
+| --------------------------------------------------------------- | --------------------------------------- |
+| `ifthen`, `ifpdf`, `ifxetex`, `ifluatex`, `iflang`, `kvoptions` | Options handling                        |
+| `microtype`                                                     | font kerning                            |
+| [just pdflatex] `fontenc`, `inputenc`                           | handle encodings                        |
+| `tgheros`                                                       | sans serif font for headings            |
+| [just luatex and xetex] `fontspec`, `unicode-math`              | serif, unicode and math fonts           |
+| [just pdflatex] `mathpazo`, `beramono`, `textcomp`              | serif, unicode and math fonts           |
+| `csquotes`                                                      | handling quotes correclty with biblatex |
+| `biblatex`                                                      | bibliography                            |
+| `graphicx`                                                      | loading logo image for the titlepage    |
