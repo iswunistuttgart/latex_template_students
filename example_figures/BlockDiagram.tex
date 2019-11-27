@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+
+    \node[block] (controller) {Controller\\ \(k(e)\)};
+    \node[block, right=2cm of controller] (plant) {Plant\\ \(\dot x = f(x,u) \)\\ \(y=h(x) \)};
+
+    \node[sum, left = of controller] (err) {};
+
+    \draw[->] (controller) -- node[above]{\(u\)} (plant);
+    \draw[->] (err) -- node[above]{\(e\)}(controller);
+
+    \draw[->](plant) -- node[above]{\(y\)} ++(2cm, 0);
+    \draw[->] (plant) -| ++(1.5cm,-1.2cm) -| node[right, pos=0.95]{\(-\)} (err);
+
+    \draw[<-] (err) -- node[left, pos=1]{\(y_\mathrm{des}\)} ++(-2cm, 0);
+
+\end{tikzpicture}

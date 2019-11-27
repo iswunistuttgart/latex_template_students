@@ -1,12 +1,12 @@
-\chapter{Beispiele}
+\chapter{Examples}
 
-Nachfolgend sind einige Beispiele zur Umsetzung in \LaTeX{} aufgelistet. Für formelle Anforderungen werfen Sie bitte einen Blick in den Leitfaden für die Anfertigung studentischer Arbeiten am ISW.
+In the following some examples for the conversion in \LaTeX{} are listed. For formal requirements, please have a look at the guidelines for the preparation of student theses at the \ac{ISW}.
 
-\section{Aufzählungen}
+\section{Listings}
 
-Für eine Einführung in Listenumgebungen mit \LaTeX{} kann \url{https://en.wikibooks.org/wiki/LaTeX/List_Structures} verwendet werden.
+An introduction for list environments with \LaTeX{} can be found at \url{https://en.wikibooks.org/wiki/LaTeX/List_Structures}.
 
-Eine ungeordnete Aufzählung kann so aussehen:
+An unordered enumeration can look like this:
 
 \begin{itemize}
     \item Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
@@ -14,7 +14,7 @@ Eine ungeordnete Aufzählung kann so aussehen:
     \item Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
 \end{itemize}
 
-Für eine geordnete Aufzählungnutzen Sie bitte die \texttt{enumerate}-Umgebung.
+Use the \texttt{enumerate} environment for ordered lists.
 
 \begin{enumerate}
     \item Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
@@ -22,29 +22,29 @@ Für eine geordnete Aufzählungnutzen Sie bitte die \texttt{enumerate}-Umgebung.
     \item Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
 \end{enumerate}
 
-Beschreibungen lassen sich mit der \texttt{description}-Umgebung erreichen:
+Descriptions are set with the \texttt{description} environment.
 
 \begin{description}
-    \item[Mücke] Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
+    \item[Mosquito] Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
     \item[Emu] Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
-    \item[Gürteltier] Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
+    \item[Armadillo] Fusce tincidunt consectetur nisl a pretium. Nam sed eleifend nunc. Nulla feugiat nisl ac mauris varius, eu viverra tellus condimentum. Nullam tempus dolor a elementum con-vallis. Nam sagittis, nisi non tempor luctus, enim ex pretium nunc, lacinia suscipit arcu augue id sem.
 \end{description}
 
-\section{Zitieren}
+\section{Cite}
 
-Zitieren Sie mit dem \texttt{\textbackslash cite\{\}}-Befehl \cite{Cochran2005,Cubitt2013}.
-Autoren und Titel können Sie ebenfalls zitieren -- mit \texttt{\textbackslash citeauthor\{\}} und \texttt{\textbackslash citetitle\{\}}: \citeauthor{Feuersaenger2014} entwickelte \texttt{pgfplots} und beschreibt das Paket in der Dokumentation \textit{\citetitle{Feuersaenger2014}}.
+Cite with the \texttt{\textbackslash cite\{\}} command \cite{Cochran2005,Cubitt2013}.
+You can mention authors and titles as well with \texttt{\textbackslash citeauthor\{\}} and \texttt{\textbackslash citetitle\{\}}: E.g., \citeauthor{Feuersaenger2014} developed \texttt{pgfplots} and describes it in the documentation \textit{\citetitle{Feuersaenger2014}}.
 
-Nutzen Sie Tools zur Literaturverwaltung, wie JabRef oder Citavi.
+Use tools for literature management as JabRef or Citavi.
 
-\section{Formelsatz}
+\section{Typing math}
 
-Eine Einführung in den Formelsatz mit \LaTeX{} finden Sie unter \url{https://de.wikibooks.org/wiki/LaTeX-Kompendium:_F%C3%BCr_Mathematiker}.
-Auch die Wikipedia-Seite zum Formelsatz (\url{https://de.wikipedia.org/wiki/Formelsatz}) ist einen Besuch wert.
+An introduction for typing math with \LaTeX{} can be found at \url{https://de.wikibooks.org/wiki/LaTeX-Kompendium:_F%C3%BCr_Mathematiker}.
+The Wikipedia page for typesetting math is worth a visit as well (\url{https://de.wikipedia.org/wiki/Formelsatz}).
 
-Formeln im Text lassen sich durch \texttt{\textbackslash( \ldots \textbackslash)} setzen, beispielsweise \(\sqrt{\alpha^2}\)) oder \( \bmat{a & b & c}^\T \) (\texttt{\textbackslash bmat} und \texttt{\textbackslash T} sind selbst definierte Makros in \texttt{settings.tex}).
+You can use \texttt{\textbackslash( \ldots \textbackslash)} to typeset fomulas in text e.g., \(\sqrt{\alpha^2}\)) or \( \bmat{a & b & c}^\T \) (\texttt{\textbackslash bmat} and \texttt{\textbackslash T} are self-defined macros from \texttt{settings.tex}).
 
-Mehrzeilige Mathe-Umgebungen können z.B mit der \texttt{align}-Umgebung gesetzt werden. Ein \&-Zeichen kann dabei für die vertikale Ausrichtung genutzt werden.
+Multiline math environments can e.g. be set with the \texttt{align} environment. A \& character helps with the vertical alignment.
 
 \begin{align}
 c^2 &= a^2 + b^2 \nonumber \\
@@ -52,50 +52,49 @@ c^2 &= a^2 + b^2 \nonumber \\
 \end{align}
 
 
-Nummerieren Sie nur Gleichungen, die später referenziert werden, wie \autoref{eq:pythagoras_solution}. 
-\texttt{\textbackslash nonumber} unterdrückt das Erzeugen einer Nummer.
+Only number equations that will be referenced later, such as \autoref{eq:pythagoras_solution}. 
+\texttt{\textbackslash nonumber} suppresses the generation of an equation number.
 
-\section{Tabellen}
+\section{Tables}
 
-
-Tabellen werden, wie \autoref{tab:tierpreise} gezeigt, in einer \texttt{table}-Umgebung gesetzt.
-Sie müssen immer im vorherigen Text referenziert und erläutert werden. 
-Durch Einbinden des Pakets \href{https://ctan.kako-dev.de/macros/latex/contrib/booktabs/booktabs.pdf}{\texttt{booktabs}} lassen sich Tabellen einfach setzen. 
+Tasbles are set in a \texttt{table} environment, as shown in \autoref{tab:animalPrices}.
+They must always be referenced and explained in the previous text.
+The package \href{https://ctan.kako-dev.de/macros/latex/contrib/booktabs/booktabs.pdf}{\texttt{booktabs}} faciliates the consistent use of horizontal line strenghts.
 
     \begin{table}[htb]
     \centering
     \begin{tabular}{@{}llr@{}} \toprule
-    \multicolumn{2}{c}{Artikel} \\ 
-    \cmidrule(r){1-2}Tier  & Beschreibung & Preis (€)\\ \midrule
-        Mücke & pro Gramm    & 13.65 \\
-        & pro Stück    & 0.01 \\
-        Gnu   & ausgestopft  & 92.50 \\
-        Emu   & ausgestopft  & 33.33 \\
-        Gürteltier & gefroren & 8.99 \\ \bottomrule
+    \multicolumn{2}{c}{Article}             \\ \cmidrule(r){1-2}
+        Animal   & Description  & Price (€) \\ \midrule
+        Mosquito & per gramm    & 13.65     \\
+                 & per piece    & 0.01      \\
+        Gnu      & stuffed      & 92.50     \\
+        Emu      & stuffed      & 33.33     \\
+        Armadillo& frozen       & 8.99      \\ \bottomrule
     \end{tabular}
-    \caption{Beispieltabelle mit dem Paket booktabs.} 
-    \label{tab:tierpreise}
+    \caption{Example table using the booktabs package} 
+    \label{tab:animalPrices}
     \end{table}
 
-\section{Grafiken}
+\section{Graphics}
 
-Einfache Grafiken lassen sich mit \texttt{\textbackslash includegraphics} einbinden. Nutzen Sie für Grafiken immer eine \texttt{figure}-Umgebung. Referenzieren Sie Grafiken, bevor Sie im Text erscheinen, wie \autoref{fig:ustutt_logo}, und vergeben Sie aussagekräftige Bildunterschriften.
+Simple graphics can be integrated with \texttt{\textbackslash includegraphics}. Always use a \texttt{figure} environment for graphics. Reference graphics before they appear in the text, such as \autoref{fig:ustutt_logo}, and assign meaningful captions to them.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.5\textwidth]{images/logo-university-de.eps}
-\caption{Das Logo der Universität Stuttgart.}
+\caption{The logo of the University of Stuttgart}
 \label{fig:ustutt_logo}
 \end{figure}
 
-In \autoref{fig:blockschaltbild}, \autoref{fig:timeseries_states}, \autoref{fig:timeseries_input} und \autoref{fig:phasenplot} sind Grafiken TikZ und PGFplots abgebildet, die hilfreich für die eigene Arbeit sein können.
+Some graphics with TikZ and PGFplots are shown on \autoref{fig:blockDiagram}, \autoref{fig:timeseries_states}, \autoref{fig:timeseries_input} and \autoref{fig:phasenplot} which might be helpful or inspirational for your thesis.
 
 
 \begin{figure}[htbp]
     \centering
-    \input{example_figures/Blockschaltbild}
-    \caption{Ein einfaches Blockschaltbild.}
-    \label{fig:blockschaltbild}
+    \input{example_figures/BlockDiagram}
+    \caption{A simple block diagram}
+    \label{fig:blockDiagram}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -103,56 +102,56 @@ In \autoref{fig:blockschaltbild}, \autoref{fig:timeseries_states}, \autoref{fig:
 \centering
 \begin{subfigure}[b]{0.95\textwidth}
     \input{example_figures/matlab_plot1.tex}
-    \caption{Zustände über die Zeit.}
+    \caption{States plotted over time}
     \label{fig:timeseries_states}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.95\textwidth}
     \input{example_figures/matlab_plot2.tex}
-    \caption{Stellgröße \(u(\cdot)\) über die Zeit.}
+    \caption{Input \(u(\cdot)\) plotted over time}
     \label{fig:timeseries_input}
 \end{subfigure}
 
-\caption{Beispiel für Exporte  aus MATLAB mit \texttt{matlab2tikz}.}
+\caption{Example for exports from MATLAB with \texttt{matlab2tikz}}
 \label{fig:timeseries}
 \end{figure}
 
 
 \begin{figure}[htbp]
     \centering
-    \input{example_figures/Phasenplot}
-    \caption{Phasenplot analytisch berechnet mit TikZ \cite{Tantau2013}.}
+    \input{example_figures/PhasorDiagramAnalytical}
+    \caption{Analytical calculation of a phasor diagram with TikZ \cite{Tantau2013}}
     \label{fig:phasenplot}
 \end{figure}
 
-% alle Floats werden vor dieser Zeile ausgegeben
+% all floats are printed before this barrier. Use it rarely as it *may* mess with the page layout.
 \FloatBarrier
 
 \section{Code}
 
-Für Code-Ausschnitte eignet sich z.B. das Paket \texttt{listings}. 
-Achten Sie darauf, nur absolut notwendigen Code aufzunehmen, \autoref{lst:bad_code_example} ist ein Negativbeispiel.
+The \texttt{listings} package, for example, is suitable for code excerpts. 
+Make sure that you only include necessary code, \autoref{lst:bad_code_example} is a bad example and should not be included.
 
-\begin{lstlisting}[language=C++, caption={Dieser Code eignet sich nicht zum Aufführen in Ihrer Arbeit.}, label={lst:bad_code_example}]
+\begin{lstlisting}[language=C++, caption={This code does not provide any insights and should not be included.}, label={lst:bad_code_example}]
 #include <iostream>
 
 using namespace std;
 
 int main(void){
-    cout << "Das ist kein gutes Beispiel." << endl;
+    cout << "Hello world." << endl;
     return 0;
 }
 \end{lstlisting}
 
-\section{Abkürzungen}
+\section{Abbreviations}
 
-Für Abkürzungen lässt sich das Paket \texttt{acronym} verwenden. 
+For abbreviations you can use the package \texttt{acronym}.
 
-Der Befehl \texttt{\textbackslash ac\{\}} führt bei der ersten Verwendung die Abkürzung ein, beispielsweise das \ac{ISW} und mehrere \acp{SPS}. Danach wird automatisch die Kurzform verwendet, also \ac{ISW} und \acp{SPS}. Die Definition der Abkürzungen kann in einer eigenen Datei erfolgen, das Beispieldokument bindet \texttt{chapters/Acronyms} ein.
+The command \texttt{\textbackslash ac\{\}} introduces the abbreviation at the first use, for example \ac{ISW} and several \acp{SPS}. Then the abbreviations \ac{ISW} and \acp{SPS} will be used automatically. The definition of the abbreviations can be done in a separate file, the example document includes \texttt{chapters/Acronyms}.
 
-Nach der Kurzfassung empfiehlt es sich, die Abkürzungen mit \texttt{\textbackslash acreset} zurückzusetzen, damit sie neu eingeführt werden.
+We recommend resetting the acronym package after the abstract with \texttt{\textbackslash acreset}, so they will be reintroduced in the introduction chapter.
 
 
 
-% Dieser Befehl ist nur zum Füllen des Literaturverzeichnis in diesem Beispiel und soll in Ihrer Arbeit nicht verwendet werden.
+% This command is only for filling the bibliography in this example and must not be used in your thesis.
 \nocite{*}
