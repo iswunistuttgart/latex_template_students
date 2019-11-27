@@ -13,23 +13,24 @@ VSCode is also a valid choice for editing latex documents. Just install the \tex
 \subsection{TexStudio}
 All \ac{ISW} pool computers come with the TeXstudio\footnote{\url{https://www.texstudio.org/}} latex editor and the MiKTeX\footnote{\url{https://miktex.org/}} LaTeX distribution pre-installed. If they are missing from your \ac{ISW}-machine, you can install them using the OPSI software-on-demand utility. Remember to select both for installation.
 
+In TeXstudio, remember to set \texttt{lualatex} as the standard compiler and \texttt{biber} as the bibtex backend.
 
 \section{Checking of grammar, spell and style}
 As with all word-processing tasks, it is highly recommended to use at least some sort of spell-checking software.
-For this purpose TexStudio provides integration with LanguageTool\footnote{\url{https://languagetool.org}}. LanguageTool is a java based application, so make sure to install a Java Runtime Environment. On \ac{ISW}-machines  you can again install the \texttt{javavm} package using OPSI software-on-demand. Further information on the integration of LanguageTool with TexStudio can be found at \url{http://wiki.languagetool.org/checking-la-tex-with-languagetool#toc2}.
+For this purpose TexStudio provides integration with LanguageTool\footnote{\url{https://languagetool.org}}. LanguageTool is a java based application, so make sure to install a Java Runtime Environment. On \ac{ISW}-machines  you can again install the \texttt{javavm} package using OPSI software-on-demand. Further information on the integration of LanguageTool with TexStudio can be found at the LanguageTool Wiki \footnote{\url{http://wiki.languagetool.org/checking-la-tex-with-languagetool\#toc2}}.
 
 \section{Version control}
 \label{sec:version_control}
-Whenever working on a document it is desirable to have some sort of version control. For this task, \ac{ISW} provides a gitlab server found at \url{https://git.isw.uni-stuttgart.de/}. Once you are logged in to gitlab, you can create your own repository for tracking your thesis files. A \texttt{.gitignore} file is highly recommended, in order to not track all changes to automatically generated files. Preferably, use the \texttt{.gitignore} provided by this template. Again, if \texttt{git} is not installed on your \ac{ISW}-machine, you can install it using OPSI software-on-demand.
+Whenever working on a document, it is desirable to have some sort of version control. For this task, \ac{ISW} provides a gitlab server found at \url{https://git.isw.uni-stuttgart.de/}. Once you are logged in to gitlab, you can create your own repository for tracking your thesis files. A \texttt{.gitignore} file is necessary to not track all changes to automatically generated files. You may use the \texttt{.gitignore} provided by this template. Again, if \texttt{git} is not installed on your \ac{ISW}-machine, you can install it using OPSI software-on-demand.
 
-You can achieve a rudimentary integration with TeXstudio by defining Macros such as the git commit macro shown in \autoref{lst:git_commit}. Note that macros can also be called by using shortcuts.
+You can achieve a rudimentary integration with TeXstudio by defining macros such as the git commit macro shown in \autoref{lst:git_commit}. Note that macros can also be called by using shortcuts.
 
 \begin{lstlisting}[caption={\texttt{git commit} macro}, label={lst:git_commit}]
 %SCRIPT
 dialog = new UniversalInputDialog()
 dialog.setWindowTitle("Git commit")
 dialog.add("", "Message", "comment")
-dialog.add(false, "Commit all Files","allfiles")
+dialog.add(false, "Commit all files","allfiles")
 if (dialog.exec() != null) {
 comment = dialog.get("comment")
 if ((dialog.get("allfiles")) == true){
