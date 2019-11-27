@@ -58,9 +58,9 @@ Below is a list of the packages we need to load anyhow.
 | `ifthen`, `ifpdf`, `ifxetex`, `ifluatex`, `iflang`, `kvoptions` | Options handling                        |
 | `microtype`                                                     | font kerning                            |
 | [just pdflatex] `fontenc`, `inputenc`                           | handle encodings                        |
-| `tgheros`                                                       | sans serif font for headings            |
-| [just luatex and xetex] `fontspec`, `unicode-math`              | serif, unicode and math fonts           |
-| [just pdflatex] `mathpazo`, `beramono`, `textcomp`              | serif, unicode and math fonts           |
+|                                                                 | sans serif font for headings            |
+| [just luatex and xetex] `fontspec`                              | fonts loading                           |
+| `mathpazo`, `tgpagella`, `tgheros` , `DejaVuSansMono` `textcomp`| fonts                                   |
 | `csquotes`                                                      | handling quotes correclty with biblatex |
 | `biblatex`                                                      | bibliography                            |
 | `graphicx`                                                      | loading logo image for the titlepage    |

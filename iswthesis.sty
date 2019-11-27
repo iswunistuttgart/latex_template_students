@@ -13,16 +13,16 @@
 %	- microtype ... font kerning
 %	- [just pdflatex] fontenc, inputenc ... handle encodings
 %	- tgheros ... sans serif font for headings
-%	- [just luatex and xetex] fontspec, unicode-math ... serif, unicode and math fonts
-%	- [just pdflatex] mathpazo, beramono, textcomp 	 ... serif, unicode and math fonts
+%	- [just luatex and xetex] fontspec ... font loading
+%	- mathpazo, tgpagella, textcomp 	 ... math, serif and unicode fonts
 %	- csquotes ... handling quotes correclty with biblatex
 %	- biblatex ... bibliography
 %	- graphicx ... loading logo image for the titlepage
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{iswthesis}[2019-11-13 v0.2 Basic styling for a student thesis written at ISW, University of Stuttgart.]
-\providecommand{\iswthesis}{iswthesis v0.2}
+\ProvidesPackage{iswthesis}[2019-11-27 v0.3 Basic styling for a student thesis written at ISW, University of Stuttgart.]
+\providecommand{\iswthesis}{iswthesis v0.3}
 
 \RequirePackage{ifthen}
 \RequirePackage{ifpdf}
@@ -86,26 +86,23 @@
 
 % load fonts with ligatures and proper kerning
 
+\PassOptionsToPackage{osf,sc}{mathpazo}%
+\RequirePackage{mathpazo} % Palatino with real small caps and old style figures
+\usepackage{tgheros}
+\linespread{1.05} % a bit more for Palatino
+\PassOptionsToPackage{scaled=0.85}{DejaVuSansMon}%
+\RequirePackage{tgpagella}% bera monospace font
+\RequirePackage{textcomp}% declare missing symbols
 
 \ifthenelse{\boolean{xetex}\OR\boolean{luatex}}
    { % use fontspec and OpenType fonts with utf8 engines
 	\RequirePackage{fontspec}
 	\defaultfontfeatures{Ligatures=TeX}
 	\setsansfont{Tex Gyre Heros}
-	\setmainfont[Numbers=OldStyle]{TeX Gyre Pagella} % Palatino clone
-	\linespread{1.05} % a bit more for Palatino
-	\RequirePackage[mathbf=sym]{unicode-math}
-	\setmathfont{TeX Gyre Pagella Math}
-	\setmonofont[Scale=0.85]{DejaVu Sans Mono} % like Bera; Scale=MatchLowercase
+	\setmainfont[Numbers=OldStyle]{TeX Gyre Pagella}
+	\setmonofont[Scale=0.85]{DejaVu Sans Mono} 
    }{
-	\usepackage{tgheros}
-	% \setsansfont
-	\PassOptionsToPackage{osf,sc}{mathpazo}%
-	\RequirePackage{mathpazo} % Palatino with real small caps and old style figures
-	\linespread{1.05} % a bit more for Palatino
-	\PassOptionsToPackage{scaled=0.85}{beramono}%
-	\RequirePackage{beramono}% bera monospace font
-	\RequirePackage{textcomp}% declare missing symbols
+	\relax
    }
 
 
