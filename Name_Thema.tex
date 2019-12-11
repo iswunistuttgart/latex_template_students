@@ -1,5 +1,6 @@
 \documentclass[ a4paper,
                 oneside,
+                DIV=calc,
                 toc=bibliography,
                 toc=listof
                 ]{scrbook}
@@ -32,13 +33,9 @@
     
     \cleardoublepage
     \tableofcontents
-    
-    \cleardoublepage
-    \input{chapters/Acronyms}
-    
+       
 
     \mainmatter
-
     % ********************************************************************
     % Write your own contents here:
     % ********************************************************************
@@ -57,6 +54,8 @@
     \cleardoublepage
     \printbibliography
     
+     \cleardoublepage
+    \input{chapters/Acronyms}
     \cleardoublepage
     \listoffigures
     \cleardoublepage
