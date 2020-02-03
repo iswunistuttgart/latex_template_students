@@ -157,11 +157,11 @@
 \def\iswt@aimedDegree{}
 
 \ifthenelse{\equal{\iswt@type}{bachelor}}{
-	\def\iswt@thesisType{\IfLangGerman{Bachelorarbeit}{Bachelor Thesis}}
+	\def\iswt@thesisType{\IfLangGerman{Bachelorarbeit}{Bachelor's Thesis}}
 	\def\iswt@aimedDegree{B.\,Sc.}
 }{}
 \ifthenelse{\equal{\iswt@type}{master}}{
-	\def\iswt@thesisType{\IfLangGerman{Masterarbeit}{Master Thesis}}
+	\def\iswt@thesisType{\IfLangGerman{Masterarbeit}{Master's Thesis}}
 	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
 \ifthenelse{\equal{\iswt@type}{study}}{
@@ -180,15 +180,20 @@
 
 \newcommand{\makeISWtitle}{%
 \begin{titlepage}
+
+	\hspace*{-1.6cm} \includegraphics[height=2cm]{images/logo-isw-uni-\IfLangGerman{de}{en}} 
+	\hfill
+	\raisebox{0.7\height}{\includegraphics[height = 1cm]{images/logo-isw.pdf}}\\[4em]
+
 	\centering
 	{\huge \iswt@thesisType\par}
 \vspace{4em}
 	{\Huge\bfseries\sffamily \@title\par}
 \vspace{8em}
 \IfLangGerman{eingereicht von}{submitted by}\par
-	\vspace{0.5em}
+	\vspace{0.45em}
 	{\Large\itshape \@author\par}
-	\vspace{0.5em}
+	\vspace{0.55em}
 	\IfLangGerman{aus}{from} \iswt@placeOfBirth\par
 	 \vfill
 	 
@@ -198,10 +203,8 @@
 		\IfLangGerman{Betreuer}{Supervised by} \> \iswt@supervisor \\
 		\IfLangGerman{Eingereicht am}{Submitted on} \> \@date
 	\end{tabbing}
-	\vspace{4em}
 
 
-	\includegraphics[width=0.45\paperwidth]{images/logo-isw-uni-\IfLangGerman{de}{en}}\par
 \end{titlepage}
 }%
 
