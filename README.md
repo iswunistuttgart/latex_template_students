@@ -2,6 +2,8 @@
 
 This template is aimed to provide a LaTeX writing experience with low hurdles.
 
+The template is inspired by [Philipp Tempel's Latex templates](https://git.isw.uni-stuttgart.de/projekte/eigenentwicklungen/templates/latex) with a focus on minimum dependencies and low user entry level.
+
 ## How to use it:
 
 1. Set up the project
@@ -64,3 +66,5 @@ Below is a list of the packages we need to load anyhow.
 | `csquotes`                                                      | handling quotes correclty with biblatex |
 | `biblatex`                                                      | bibliography                            |
 | `graphicx`                                                      | loading logo image for the titlepage    |
+
+
