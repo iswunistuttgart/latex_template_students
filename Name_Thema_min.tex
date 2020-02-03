@@ -1,11 +1,12 @@
 \documentclass[ a4paper,
                 oneside,
+                DIV=calc,
                 toc=bibliography,
                 toc=listof
                 ]{scrbook}
 
 \usepackage[ngerman, english]{babel} % If the thesis is in English
-\usepackage[english, ngerman]{babel} % If the thesis is in German
+%\usepackage[english, ngerman]{babel} % If the thesis is in German
 
 
 % This class does the ISW styling for you (together with scrbook).
@@ -38,7 +39,9 @@
 \begin{document} 
     \frontmatter
     \makeISWtitle
-
+    
+    \cleardoublepage
+	\setcounter{page}{1} % start at page (i) after title page
     \declarationOfOriginality
 
     % Kurzfassung/Abstract
