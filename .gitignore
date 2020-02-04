@@ -13,3 +13,5 @@
 *.toc
 *.out
 __latexindent_temp.tex
+
+!images/logo-isw.pdf
