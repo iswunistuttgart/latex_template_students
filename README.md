@@ -49,7 +49,7 @@ It handles the following:
 - Proper input and font encoding (Just type, don't care about the LaTeX compiler you use or how to type German umlauts)
 - Fonts with ligatures and kerning (Tex Gyre fonts are used, part of every LaTeX installation, text is nice to read)
 - Bibliography styling for biblatex (declare your bibliography file and you are ready to go)
-- Provide command for title page (\makeISWtitle) and declaration of originality ( \declarationOfOriginality)
+- Provide command for title page (`\makeISWtitle`) and declaration of originality ( `\declarationOfOriginality`)
 - Loads packages "biblatex" and "graphics"
 
 We tried to minimize the package dependencies. This is a styling package, not a documentclass. Komascript does the rest.
@@ -63,7 +63,7 @@ Below is a list of the packages we need to load anyhow.
 |                                                                 | sans serif font for headings            |
 | [just luatex and xetex] `fontspec`                              | fonts loading                           |
 | `mathpazo`, `tgpagella`, `tgheros` , `DejaVuSansMono` `textcomp`| fonts                                   |
-| `csquotes`                                                      | handling quotes correclty with biblatex |
+| `csquotes`                                                      | handling quotes correctly with biblatex |
 | `biblatex`                                                      | bibliography                            |
 | `graphicx`                                                      | loading logo image for the titlepage    |
 
