@@ -7,7 +7,7 @@ The template is inspired by [Philipp Tempel's Latex templates](https://git.isw.u
 ## How to use it:
 
 1. Set up the project
-   1. Search for ISW student thesis template on [Overleaf](https://www.overleaf.com/latex/templates?addsearch=isw20student20thesis) (**TODO: not yet online**), then start your project from there. This is the prefered method. No Latex installation, no package problems, just write.
+   1. Search for ISW student thesis template on [Overleaf](https://www.overleaf.com/latex/templates/isw-student-thesis/xjwkfntnwrwc), then start your project from there. This is the prefered method. No Latex installation, no package problems, just write.
    2. Or get it from this repository.
       - You need LaTeX installed on your operating system
       - Compile it with Lualatex [recommended] or pdflatex
