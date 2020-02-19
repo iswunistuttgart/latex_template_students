@@ -212,13 +212,16 @@
 \chapter*{\IfLangGerman{Eigenständigkeitserklärung}{Declaration of Originality}}
 
 \iswt@thesisType{} \IfLangGerman{von}{of} \@author{}  (\iswt@aimedDegree{} \iswt@major{})
+\vspace*{1em}
 
-\begin{tabbing}
-	\IfLangGerman{Anschrift}{Address} \hspace*{2cm} \= \iswt@address{} \\
-	\IfLangGerman{Matrikelnummer}{Student number} \> \iswt@matrnr{} \\
-	\IfLangGerman{Deutscher Titel}{English title} \> \textit{\@title{}}\\
-	\IfLangGerman{Englischer Titel}{German title} \> \textit{\iswt@titleTranslated{}}
-\end{tabbing}
+\noindent
+\begin{tabular}{@{}p{0.2\textwidth} p{0.78\textwidth}@{}}
+	\IfLangGerman{Anschrift}{Address} & \iswt@address{} \\
+	\IfLangGerman{Matrikelnummer}{Student number}   & \iswt@matrnr{} \\
+	\IfLangGerman{Deutscher Titel}{English title}   & \textit{\@title{}} \\
+	\IfLangGerman{Englischer Titel}{German title}   & \textit{\iswt@titleTranslated{}}
+\end{tabular}
+\vspace*{1em}
 
 \IfLangGerman{
 	\noindent Hiermit erkläre ich,
