@@ -7,7 +7,7 @@ The template is inspired by [Philipp Tempel's Latex templates](https://git.isw.u
 ## How to use it:
 
 1. Set up the project
-   1. Search for ISW student thesis template on [Overleaf](https://www.overleaf.com/latex/templates?addsearch=isw20student20thesis) (**TODO: not yet online**), then start your project from there. This is the prefered method. No Latex installation, no package problems, just write.
+   1. Search for ISW student thesis template on [Overleaf](https://www.overleaf.com/latex/templates/isw-student-thesis/xjwkfntnwrwc), then start your project from there. This is the prefered method. No Latex installation, no package problems, just write.
    2. Or get it from this repository.
       - You need LaTeX installed on your operating system
       - Compile it with Lualatex [recommended] or pdflatex
@@ -49,7 +49,7 @@ It handles the following:
 - Proper input and font encoding (Just type, don't care about the LaTeX compiler you use or how to type German umlauts)
 - Fonts with ligatures and kerning (Tex Gyre fonts are used, part of every LaTeX installation, text is nice to read)
 - Bibliography styling for biblatex (declare your bibliography file and you are ready to go)
-- Provide command for title page (\makeISWtitle) and declaration of originality ( \declarationOfOriginality)
+- Provide command for title page (`\makeISWtitle`) and declaration of originality ( `\declarationOfOriginality`)
 - Loads packages "biblatex" and "graphics"
 
 We tried to minimize the package dependencies. This is a styling package, not a documentclass. Komascript does the rest.
@@ -63,7 +63,7 @@ Below is a list of the packages we need to load anyhow.
 |                                                                 | sans serif font for headings            |
 | [just luatex and xetex] `fontspec`                              | fonts loading                           |
 | `mathpazo`, `tgpagella`, `tgheros` , `DejaVuSansMono` `textcomp`| fonts                                   |
-| `csquotes`                                                      | handling quotes correclty with biblatex |
+| `csquotes`                                                      | handling quotes correctly with biblatex |
 | `biblatex`                                                      | bibliography                            |
 | `graphicx`                                                      | loading logo image for the titlepage    |
 
