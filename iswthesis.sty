@@ -15,14 +15,14 @@
 %	- tgheros ... sans serif font for headings
 %	- [just luatex and xetex] fontspec ... font loading
 %	- mathpazo, tgpagella, textcomp 	 ... math, serif and unicode fonts
-%	- csquotes ... handling quotes correclty with biblatex
+%	- csquotes ... handling quotes correctly with biblatex
 %	- biblatex ... bibliography
 %	- graphicx ... loading logo image for the titlepage
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{iswthesis}[2020-02-03 v0.4 Basic styling for a student thesis written at ISW, University of Stuttgart.]
-\providecommand{\iswthesis}{iswthesis v0.4}
+\ProvidesPackage{iswthesis}[2020-02-03 v0.4.1 Basic styling for a student thesis written at ISW, University of Stuttgart.]
+\providecommand{\iswthesis}{iswthesis v0.4.1}
 
 \RequirePackage{ifthen}
 \RequirePackage{ifpdf}
@@ -113,7 +113,7 @@
   backref=false,%
   giveninits=true,%
   autocite=inline,%
-  sorting=nyt,%
+  sorting=none,% in order of occurence. Other option: nyt (name year title)
   sortcites=true,%
   mincitenames=1,%
   maxcitenames=2,%
