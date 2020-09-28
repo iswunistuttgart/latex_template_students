@@ -2,7 +2,7 @@
 
 This template is aimed to provide a LaTeX writing experience with low hurdles.
 
-The template is inspired by [Philipp Tempel's Latex templates](https://git.isw.uni-stuttgart.de/projekte/eigenentwicklungen/templates/latex) with a focus on minimum dependencies and low user entry level.
+The template is inspired by [Philipp Tempel's Latex templates](https://github.com/iswunistuttgart/latex-templates) with a focus on minimum dependencies and low user entry level.
 
 ## How to use it:
 
