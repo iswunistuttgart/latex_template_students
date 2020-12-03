@@ -1,7 +1,12 @@
 % Beispiel für ein Projektexposé.
-\documentclass[a4paper]{scrartcl}
+\documentclass[ a4paper,
+                toc=bibliography
+              ]{scrartcl}
 
 \usepackage{iswthesis}
+
+% Path to .bib file for BibLatex
+\addbibresource{bibliography.bib}
 
 %% Einstellungen:
 \usepackage[ngerman]{babel}
@@ -11,7 +16,6 @@
 \pgfplotsset{compat=newest} 
 \usepackage{pgfgantt} % Paket für Gantt-Diagramme
 
-
 \author{Max Mustermann}
 \title{Exposé: Name des Themas}
 \date{\today}
@@ -20,7 +24,8 @@
 
 \maketitle
 	
-\section{Motivation}
+\section{Einleitung}
+\subsection{Motivation}
 
 Das Exposé dient dazu, die gestellte Aufgabe zu reflektieren und in eigenen Worten wiederzugeben. Darüber hinaus soll der Stand der Technik recherchiert und analysiert werden. Basierend auf der gestellten Aufgabe und dem aus dem Stand der Technik abgeleiteten Handlungsbedarf soll eine Zeitplanung erstellt werden. Die Gliederung dieses Dokuments gibt die Grobstruktur des Exposés vor. Jedoch gilt auch für das Exposé, dass die Kapitelüberschriften und deren Reihenfolge der jeweiligen Arbeit und dem entsprechenden Themengebiet angepasst werden müssen.
 
@@ -37,11 +42,12 @@ Das erste Kapitel (inkl. Unterkapitel) der Arbeit und dieses Exposé dienen dazu
 Überlegen Sie sich eine sinnvolle Argumentationskette, die auf das Thema hinführt.
 
 
-\section{Zielsetzung}
+\subsection{Zielsetzung}
 
-\section{Stand der Technik: Übersicht}
+\subsection{Vorgehensweise}
+Das hier gezeigte Beispielexposé bietet keine vollständige Vorlage für die finale Ausarbeitung. Es wird daher empfohlen, die relevanten Inhalte nach der Abgabe des Exposés in die \texttt{Name\_Thema.tex} Vorlage zu übertragen, welche auch besser strukturiert ist.
 
-\section{Vorgehensweise}
+\section{Stand der Technik}
 
 \section{Arbeitspaket- und Zeitplan}
 
@@ -89,5 +95,11 @@ Das erste Kapitel (inkl. Unterkapitel) der Arbeit und dieses Exposé dienen dazu
 
 
 Beschreibung des Arbeitsplans in \autoref{fig:Gantt-chart-2} \ldots
+
+% ********************************************************************
+% End of contents
+% ********************************************************************
+\cleardoublepage
+\printbibliography
 
 \end{document}
