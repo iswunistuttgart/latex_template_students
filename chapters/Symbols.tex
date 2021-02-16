@@ -1,0 +1,36 @@
+\cleardoublepage
+\addchap{List of Symbols}
+
+This section is optional. 
+Ask your supervisor whether it is required for your thesis. 
+If you have more than 10 formulas involved it probably is.
+
+There are two ways to build a list of symbols:
+
+\begin{itemize}
+    \item If you just want to get it done, then use a \texttt{longtable} and fill your symbols in, see table below.
+    \item If you want it fancy, then package \texttt{glossaries} (maybe \texttt{glossaries-extra}) may be your way to go. 
+    Be warned that although it automates symbol handling (e.g. sorting and referencing of symbols), it comes with some administrative overhead. 
+    You can find a discussion on different ways to achieve this \href{https://tex.stackexchange.com/a/366282}{on https://tex.stackexchange.com/a/366282}.
+\end{itemize}
+\centering
+\begin{longtable}{@{}c l p{10cm}@{}}
+\toprule
+Symbol & Unit & Description \\
+\midrule
+\endfirsthead
+\multicolumn{3}{c}{\textit{List of Symbols -- continued}}\\
+\toprule
+Symbol & Unit & Description \\
+\midrule
+\endhead
+\bottomrule \multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+% start here with your symbols:
+\(\psi\) & rad & Heading angle of hamster \\
+\(\dot x\) & m/s & Linear velocity of hamster \\
+\(\ddot x_0\) & m/s$^2$ & Initial acceleration of hamster \\
+\end{longtable}
