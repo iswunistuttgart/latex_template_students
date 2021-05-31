@@ -71,7 +71,9 @@ Das hier gezeigte Beispielexposé bietet keine vollständige Vorlage für die fi
             milestone height = 0.7,
             milestone/.append style={fill=orange},
             progress=today,
+            progress label text={\pgfmathprintnumber[verbatim,precision=0]{#1}\% abgeschlossen}, % Anzeige des Fortschritts auf deutsch (statt "completed")
             today = 4, % wenn today gesetzt ist wird eine Linie mit dem aktuellen Stand angezeigt.
+            today label=HEUTE, % Label des aktuellen Standes/Datums deutsch (statt "TODAY")
             ]{1}{30} % Zeitraum einstellen, von wann bis wann
             
             \gantttitle{2018}{10} \gantttitle{2019}{20} \\ % wie viele Kalenderwochen in welchemm Jahr
