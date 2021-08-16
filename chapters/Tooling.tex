@@ -8,7 +8,7 @@ By far the easiest and fastest setup is provided by \url{overleaf.com}. After cr
 However, sometimes it is not possible to have your work hosted on public servers due to \acp{NDA}. Ask your supervisor if you're allowed to use overleaf!
 
 \subsection{Visual Studio Code}
-VSCode is also a valid choice for editing latex documents. Just install the \texttt{LaTex Workshop} extension.
+VSCode is also a valid choice for editing latex documents. Just install the \texttt{LaTex Workshop} extension. You should also consider installing the \texttt{LTex} extension for integrating LanguageTool (see \autoref{sec:spelling}).
 
 \subsection{TexStudio}
 All \ac{ISW} pool computers come with the TeXstudio\footnote{\url{https://www.texstudio.org/}} latex editor and the MiKTeX\footnote{\url{https://miktex.org/}} LaTeX distribution pre-installed. If they are missing from your \ac{ISW}-machine, you can install them using the OPSI software-on-demand utility. Remember to select both for installation.
@@ -16,6 +16,7 @@ All \ac{ISW} pool computers come with the TeXstudio\footnote{\url{https://www.te
 In TeXstudio, remember to set \texttt{lualatex} as the standard compiler and \texttt{biber} as the bibtex backend.
 
 \section{Checking of grammar, spell and style}
+\label{sec:spelling}
 As with all word-processing tasks, it is highly recommended to use at least some sort of spell-checking software.
 For this purpose TexStudio provides integration with LanguageTool\footnote{\url{https://languagetool.org}}. LanguageTool is a java based application, so make sure to install a Java Runtime Environment. On \ac{ISW} pool-computers you can again install LanguageTool using OPSI software-on-demand. The necessary settings for \ac{ISW} pool-computers are shown in \autoref{fig:texstudio-languagetool-integration}. Further information on the integration of LanguageTool with TexStudio can be found at the LanguageTool Wiki \footnote{\url{http://wiki.languagetool.org/checking-la-tex-with-languagetool\#toc2}}.
 
