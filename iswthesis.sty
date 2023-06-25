@@ -164,8 +164,12 @@
 	\def\iswt@thesisType{\IfLangGerman{Masterarbeit}{Master's Thesis}}
 	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
-\ifthenelse{\equal{\iswt@type}{study}}{
+\ifthenelse{\equal{\iswt@type}{study-old}}{
 	\def\iswt@thesisType{\IfLangGerman{Studienarbeit}{Study Paper}}
+	\def\iswt@aimedDegree{M.\,Sc.}
+}{}
+\ifthenelse{\equal{\iswt@type}{study}}{
+	\def\iswt@thesisType{\IfLangGerman{Forschungsarbeit}{Study Paper}}
 	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
 \ifthenelse{\equal{\iswt@type}{diss}}{
