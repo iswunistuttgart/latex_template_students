@@ -124,15 +124,9 @@
   natbib=true,
 }{biblatex}
 
-\ifthenelse{\equal{\iswt@type}{diss}}{% TRUE
-  \PassOptionsToPackage{%
-    style=authoryear,%
-  }{biblatex}
-}{% FALSE
-  \PassOptionsToPackage{%
-    style=ieee,%
-  }{biblatex}
-}%
+\PassOptionsToPackage{%
+  style=ieee,%
+}{biblatex}
 
 \RequirePackage{csquotes}
 \RequirePackage{biblatex}
@@ -171,10 +165,6 @@
 \ifthenelse{\equal{\iswt@type}{study}}{
 	\def\iswt@thesisType{\IfLangGerman{Forschungsarbeit}{Study Paper}}
 	\def\iswt@aimedDegree{M.\,Sc.}
-}{}
-\ifthenelse{\equal{\iswt@type}{diss}}{
-	\def\iswt@thesisType{Dissertation}
-	\def\iswt@aimedDegree{Dr.-Ing.}
 }{}
 \ifthenelse{\equal{\iswt@type}{bachelorproject}}{
 	\def\iswt@thesisType{\IfLangGerman{Bachelor-Projektarbeit}{Bachelor Project}}
