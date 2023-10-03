@@ -67,4 +67,5 @@ Below is a list of the packages we need to load anyhow.
 | `biblatex`                                                      | bibliography                            |
 | `graphicx`                                                      | loading logo image for the titlepage    |
 
-
+### Use tikzpictures in MS Powerpoint
+You may find this useful. There is a guide to installing and using IguanaTex in `tikz_in_ppt.tex`
