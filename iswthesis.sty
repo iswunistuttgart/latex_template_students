@@ -118,21 +118,13 @@
   mincitenames=1,%
   maxcitenames=2,%
   maxbibnames=10,%
-  doi=false,%
+  doi=true,%
   isbn=false,%
-  url=false,%
+  url=true,%
   natbib=true,
+  style=ieee,%
 }{biblatex}
 
-\ifthenelse{\equal{\iswt@type}{diss}}{% TRUE
-  \PassOptionsToPackage{%
-    style=authoryear,%
-  }{biblatex}
-}{% FALSE
-  \PassOptionsToPackage{%
-    style=ieee,%
-  }{biblatex}
-}%
 
 \RequirePackage{csquotes}
 \RequirePackage{biblatex}
@@ -156,21 +148,21 @@
 \def\iswt@thesisType{\texttt{type}-Option invalid}
 \def\iswt@aimedDegree{}
 
-\ifthenelse{\equal{\iswt@type}{bachelor}}{
+\ifthenelse{\equal{\iswt@type}{BA}}{
 	\def\iswt@thesisType{\IfLangGerman{Bachelorarbeit}{Bachelor's Thesis}}
 	\def\iswt@aimedDegree{B.\,Sc.}
 }{}
-\ifthenelse{\equal{\iswt@type}{master}}{
+\ifthenelse{\equal{\iswt@type}{MA}}{
 	\def\iswt@thesisType{\IfLangGerman{Masterarbeit}{Master's Thesis}}
 	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
-\ifthenelse{\equal{\iswt@type}{study}}{
+\ifthenelse{\equal{\iswt@type}{SA}}{
 	\def\iswt@thesisType{\IfLangGerman{Studienarbeit}{Study Paper}}
 	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
-\ifthenelse{\equal{\iswt@type}{diss}}{
-	\def\iswt@thesisType{Dissertation}
-	\def\iswt@aimedDegree{Dr.-Ing.}
+\ifthenelse{\equal{\iswt@type}{FA}}{
+	\def\iswt@thesisType{\IfLangGerman{Forschungsarbeit}{Study Paper}}
+	\def\iswt@aimedDegree{M.\,Sc.}
 }{}
 \ifthenelse{\equal{\iswt@type}{bachelorproject}}{
 	\def\iswt@thesisType{\IfLangGerman{Bachelor-Projektarbeit}{Bachelor Project}}
