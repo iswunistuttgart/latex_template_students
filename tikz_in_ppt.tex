@@ -1,0 +1,28 @@
+%Template für matalb2tikz Vektorgrafik für Prsäentation in Aral Wichtig: Compiler: LuaLaTex %Troubleshoot: MikTex als Admin installieren
+
+% This might be helpful, if u want to include tikzpictures in powerpoint.
+% Step one: Install IguanaTeX https://www.jonathanleroux.org/software/iguanatex/
+% Installation guide https://www.jonathanleroux.org/software/iguanatex/download.html "Installation" 
+% 
+% Ppt: macro "IguanaTeX" appears after successful installation
+% You might need to change the settings (under "main settings")
+% "Insert vector grafics file" lets you insert your tikz picture
+% use this as a template. Insert the generated PDF via the IguanaTeX macro
+
+% Troubleshoot: 
+% Install MikTeX as admin
+% Use LuaLaTeX (as u should ;))
+% Ask Marcel Dzubba, better: ChatGPT:)
+
+% Be sure to check this out: https://github.com/matlab2tikz/matlab2tikz
+
+\documentclass{standalone}
+
+\input{settings}  % https://github.com/iswunistuttgart/latex_template_students
+            		 % Add settings.tex and iswthesis.sty to current path
+\usepackage{fontspec} %https://tex.stackexchange.com/questions/23957/how-to-set-font-to-arial-throughout-the-entire-document
+\setmainfont{Arial}
+
+\begin{document}
+\input{example_figures/BlockDiagram.tex}
+\end{document}
