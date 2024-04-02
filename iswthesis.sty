@@ -21,8 +21,8 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{iswthesis}[2020-02-03 v0.4.1 Basic styling for a student thesis written at ISW, University of Stuttgart.]
-\providecommand{\iswthesis}{iswthesis v0.4.1}
+\ProvidesPackage{iswthesis}[2024-04-02 v0.5 Basic styling for a student thesis written at ISW, University of Stuttgart.]
+\providecommand{\iswthesis}{iswthesis v0.5}
 
 \RequirePackage{ifthen}
 \RequirePackage{ifpdf}
@@ -41,6 +41,8 @@
 \providecommand{\address}[1]{\gdef\iswt@address{#1}}
 \providecommand{\placeOfBirth}[1]{\gdef\iswt@placeOfBirth{#1}}
 \providecommand{\matrnr}[1]{\gdef\iswt@matrnr{#1}}
+\providecommand{\signature}[1]{\gdef\iswt@signatureImage{#1}}
+\signature{}
 
 \providecommand{\supervisor}[1]{\gdef\iswt@supervisor{#1}}
 \providecommand{\professor}[1]{\gdef\iswt@professor{#1}}
@@ -235,7 +237,8 @@
 \end{itemize}
 }
 \vfill
-\noindent\rule{6cm}{0.66pt}\\
+\ifdefempty{\iswt@signatureImage}{}{\noindent \includegraphics[height=1cm]{\iswt@signatureImage}\\}
+\noindent \rule{6cm}{0.66pt}\\
 Stuttgart,\IfLangGerman{ den}{} \@date
 
 }
