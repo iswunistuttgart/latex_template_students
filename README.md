@@ -16,6 +16,11 @@ The template is inspired by [Philipp Tempel's Latex templates](https://github.co
    - Thesis?
      - Want to setup your own? --> `Name_Thema_min.tex` (+ `iswthesis.sty`)
      - Nees suggestions which packages to use? -> `Name_Thema.tex` (+ the whole directory)
+3. Configure biblatex (either with biber or with bibtex) as your bibliography program
+   - If you are on Texstudio, the magic comments on top of the example document should do it for you
+   - Overleaf should manage this for you automatically
+   - vscode, see [here](https://tex.stackexchange.com/questions/459640/implementing-biber-for-biblatex-in-microsoft-visual-studio-code)
+   - Bibliography programs as [JabRef](https://docs.jabref.org/installation) have a [setting](https://docs.jabref.org/cite/bibtex-and-biblatex) to configure biblatex, which has more fields and entry types.
 3. Start
 
 ## Directory structure
